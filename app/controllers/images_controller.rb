@@ -1,13 +1,33 @@
 class ImagesController < ApplicationController
   def new
-    @gallery = Gallery.find(params[:gallery_id])
+    @gallery = find_gallery
     @image = Image.new
   end
 
+  def show
+    @image = find_image
+  end
+
   def create
-    gallery = Gallery.find(params[:gallery_id])
+    gallery = find_gallery
     gallery.images.create(image_params)
     redirect_to gallery
+  end
+
+  def edit
+    @image = find_image
+  end
+
+  def update
+    image = find_image
+    image.update(image_params)
+    redirect_to image
+  end
+
+  def destroy
+    image = find_image
+    image.destroy
+    redirect_to image.gallery
   end
 
   private
@@ -18,5 +38,13 @@ class ImagesController < ApplicationController
       :url,
       :description
     )
+  end
+
+  def find_image
+    Image.find(params[:id])
+  end
+
+  def find_gallery
+    Gallery.find(params[:id])
   end
 end

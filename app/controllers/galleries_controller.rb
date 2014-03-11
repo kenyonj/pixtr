@@ -4,7 +4,7 @@ class GalleriesController < ApplicationController
   end
 
   def show
-    @gallery = Gallery.find(params[:id])
+    @gallery = find_gallery
   end
 
   def new
@@ -17,17 +17,17 @@ class GalleriesController < ApplicationController
   end
 
   def edit
-    @gallery = Gallery.find(params[:id])
+    @gallery = find_gallery
   end
 
   def update
-    gallery = Gallery.find(params[:id])
+    gallery = find_gallery
     gallery.update(gallery_params)
     redirect_to gallery
   end
 
   def destroy
-    gallery = Gallery.find(params[:id])
+    gallery = find_gallery
     gallery.destroy
     redirect_to galleries_path
   end
@@ -36,5 +36,13 @@ class GalleriesController < ApplicationController
 
   def gallery_params
     params.require(:gallery).permit(:name)
+  end
+
+  def find_image
+    Image.find(params[:id])
+  end
+
+  def find_gallery
+    Gallery.find(params[:id])
   end
 end

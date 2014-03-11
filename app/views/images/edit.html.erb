@@ -1,0 +1,10 @@
+<%= form_for @image do |form| %>
+  <%= form.label :name, "Name:" %>
+  <%= form.text_field :name %><br>
+  <%= form.label :description, "Description:" %>
+  <%= form.text_field :description %><br>
+  <%= form.label :url, "URL:" %>
+  <%= form.text_field :url %><br>
+  <%= form.submit "Update Image" %>
+<% end %>
+<%= link_to "Cancel Edit", @image.gallery %>
