@@ -45,6 +45,6 @@ class ImagesController < ApplicationController
   end
 
   def find_gallery
-    Gallery.find(params[:id])
+    Gallery.find(params[:gallery_id])
   end
 end
