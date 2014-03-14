@@ -2,9 +2,11 @@
 <%= content_tag :h2, @image.name %>
 <%= content_tag :h3, @image.description %>
 <p>
-  <%= link_to "Edit image", edit_image_path(@image) %>
-  <%= link_to "Delete image", @image, method: :delete, 
-      confirm: "Are you sure you want to delete this image?"
-  %>
+  <% if @image.user == current_user %>
+    <%= link_to "Edit image", edit_image_path(@image) %>
+    <%= link_to "Delete image", @image, method: :delete, 
+        confirm: "Are you sure you want to delete this image?"
+    %>
+  <% end %>
 </p>
 <%= image_tag(@image.url, width: "500") %>

@@ -1,10 +1,10 @@
 class GalleriesController < ApplicationController
   def index
-    @galleries = Gallery.all
+    @galleries = current_user.galleries
   end
 
   def show
-    @gallery = find_gallery
+    @gallery = Gallery.find(params[:id])
   end
 
   def new
@@ -43,6 +43,6 @@ class GalleriesController < ApplicationController
   end
 
   def find_gallery
-    Gallery.find(params[:id])
+    current_user.galleries.find(params[:id])
   end
 end

@@ -1,8 +1,10 @@
 <%= link_to "Back to the galleries Index", galleries_path %>
 <%= content_tag :h1, @gallery.name %>
-<%= link_to "Edit", edit_gallery_path(@gallery) %>
-<%= link_to "Delete", @gallery, method: :delete %>
-<%= link_to "New image", new_gallery_image_path(@gallery) %>
+<% if @gallery.user == current_user %>
+  <%= link_to "Edit", edit_gallery_path(@gallery) %>
+  <%= link_to "Delete", @gallery, method: :delete %>
+  <%= link_to "New image", new_gallery_image_path(@gallery) %>
+<% end %>
 <br>
 <br>
 <br>

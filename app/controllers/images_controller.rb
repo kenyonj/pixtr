@@ -5,7 +5,7 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @image = find_image
+    @image = Image.find(params[:id])
   end
 
   def create
@@ -41,10 +41,10 @@ class ImagesController < ApplicationController
   end
 
   def find_image
-    Image.find(params[:id])
+    current_user.images.find(params[:id])
   end
 
   def find_gallery
-    Gallery.find(params[:gallery_id])
+    current_user.galleries.find(params[:gallery_id])
   end
 end

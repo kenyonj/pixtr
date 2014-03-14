@@ -1,5 +1,5 @@
 Pixtr::Application.routes.draw do
-  root "galleries#index"
+  root "homes#show"
   resources :galleries do
     resources :images, shallow: true
   end
