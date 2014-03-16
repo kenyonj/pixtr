@@ -1,1 +1,6 @@
-Welcome to Pixtr!
+<h1>Welcome to Pixtr!</h1>
+<% @galleries.each do |gallery| %>
+  <div>
+    <%= link_to gallery.name.capitalize, gallery %>
+  </div>
+<% end %>
