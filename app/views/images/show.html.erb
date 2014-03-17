@@ -10,3 +10,23 @@
   <% end %>
 </p>
 <%= image_tag(@image.url, width: "500") %>
+<% if signed_in? %>
+  <%= form_for [@image, @comment] do |form| %>
+    <%= form.text_area :body %>
+    <%= form.submit "Comment" %>
+  <% end %>
+<% else %>
+  <div>
+    <%= link_to "Sign in", sign_in_path %> to comment.
+  </div>
+<% end %>
+<% if @comments %>
+  <h2>Comments:</h2>
+  <% @comments.each do |comment| %>
+    <div>
+      <%= comment.user.email %> said: 
+      <%= comment.body %> <%= time_ago_in_words(comment.created_at) %> ago
+    </div>
+  <% end %>
+<% end %>
+

@@ -1,4 +1,6 @@
 class GalleriesController < ApplicationController
+  before_action :authorize, except: [:show]
+
   def index
     @galleries = current_user.galleries
   end
