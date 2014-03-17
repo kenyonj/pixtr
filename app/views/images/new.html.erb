@@ -1,10 +1,24 @@
+<h2>New image</h2>
 <%= form_for [@gallery, @image] do |form| %>
-  <%= form.label :name, "Name:" %>
-  <%= form.text_field :name %><br>
-  <%= form.label :description, "Description:" %>
-  <%= form.text_field :description %><br>
-  <%= form.label :url, "URL:" %>
-  <%= form.text_field :url %><br>
-  <%= form.submit "Create Image" %>
+  <% if @image.errors.any? %>
+    <p>Could not save for the following reasons:</p>
+    <ul>
+      <% @image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form.text_field :name, placeholder: "Name" %>
+  </div>
+  <div>
+    <%= form.text_field :description, placeholder: "Description" %><br>
+  </div>
+  <div>
+    <%= form.text_field :url, placeholder: "URL" %><br>
+  </div>
+  <div>
+    <%= form.submit "Create Image" %>
+  </div>
 <% end %>
 

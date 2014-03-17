@@ -7,13 +7,17 @@ class ImagesController < ApplicationController
   def show
     @image = Image.find(params[:id])
     @comment = Comment.new
-    @comments = @image.comments
+    @comments = @image.comments.recent
   end
 
   def create
-    gallery = find_gallery
-    gallery.images.create(image_params)
-    redirect_to gallery
+    @gallery = find_gallery
+    @image = @gallery.images.build(image_params)
+    if @image.save
+      redirect_to @gallery
+    else
+      render :new
+    end
   end
 
   def edit
