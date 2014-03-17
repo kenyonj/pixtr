@@ -1,6 +1,6 @@
 class GalleriesController < ApplicationController
   def index
-    @galleries = Gallery.all
+    @galleries = current_user.galleries
   end
 
   def show
