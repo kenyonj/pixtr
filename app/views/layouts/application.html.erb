@@ -7,6 +7,11 @@
 <%= csrf_meta_tags %>
 </head>
 <body>
+  <h1><%= link_to "Pixtr", root_path %></h1>
+  <nav>
+    <%= link_to "My Galleries", galleries_path %>
+  </nav>
+
   <% if signed_in? %>
     Signed in as: <%= current_user.email %>
     <%= link_to 'Sign out', sign_out_path, :method => :delete %>
