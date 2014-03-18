@@ -7,7 +7,7 @@ class ImagesController < ApplicationController
   def show
     @image = Image.find(params[:id])
     @comment = Comment.new
-    @comments = @image.comments.recent
+    @comments = @image.comments.recent.page(params[:page]).per(2)
   end
 
   def create
