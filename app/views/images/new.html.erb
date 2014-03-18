@@ -1,13 +1,7 @@
 <h2>New image</h2>
 <%= form_for [@gallery, @image] do |form| %>
-  <% if @image.errors.any? %>
-    <p>Could not save for the following reasons:</p>
-    <ul>
-      <% @image.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <%= render "error_messages", target: @image %>
+
   <div>
     <%= form.text_field :name, placeholder: "Name" %>
   </div>

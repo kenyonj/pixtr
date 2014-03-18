@@ -8,8 +8,4 @@
 <br>
 <br>
 <br>
-<% @gallery.images.each do |image| %>
-  <%= link_to image_tag(image.url, width: "200"), image %>
-  <p>Name: <%= image.name %></p>
-  <p>Description: <%= image.description %></p>
-<% end %>
+<%= render @gallery.images %>

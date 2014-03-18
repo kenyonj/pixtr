@@ -1,4 +1,9 @@
 <%= form_for(@gallery) do |form| %>
-  <%= form.text_field :name %>
-  <%= form.submit "Update Gallery" %>
+  <%= render "error_messages", target: @gallery %>
+  <div>
+    <%= form.text_field :name, placeholder: "Name" %>
+  </div>
+  <div>
+    <%= form.submit "Update Gallery" %>
+  </div>
 <% end %>

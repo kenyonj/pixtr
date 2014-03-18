@@ -22,13 +22,6 @@
 <% end %>
 <% if @comments %>
   <h2>Comments:</h2>
-  <% @comments.each do |comment| %>
-    <div>
-      <%= comment.user.email %>  <%= time_ago_in_words(comment.created_at) %> ago
-    </div>
-    <div>
-      <%= comment.body %>
-    </div>
-  <% end %>
+  <%= render @comments %>
 <% end %>
 

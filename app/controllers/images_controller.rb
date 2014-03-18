@@ -25,9 +25,12 @@ class ImagesController < ApplicationController
   end
 
   def update
-    image = find_image
-    image.update(image_params)
-    redirect_to image
+    @image = find_image
+    if @image.update(image_params)
+      redirect_to @image
+    else
+      render :edit
+    end
   end
 
   def destroy
