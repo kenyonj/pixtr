@@ -8,9 +8,12 @@
 </head>
 <body>
   <h1><%= link_to "Pixtr", root_path %></h1>
-  <nav>
-    <%= link_to "My Galleries", galleries_path %>
-  </nav>
+  <% if signed_in? %>
+    <nav>
+      <%= link_to "Galleries", galleries_path %>
+      <%= link_to "Groups", groups_path %>
+    </nav>
+  <% end %>
 
   <% if signed_in? %>
     Signed in as: <%= current_user.email %>
