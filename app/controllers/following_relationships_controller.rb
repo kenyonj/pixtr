@@ -5,6 +5,12 @@ class FollowingRelationshipsController < ApplicationController
     redirect_to followed_user
   end
 
+  def destroy
+    followed_user = find_followed_user
+    current_user.unfollow followed_user
+    redirect_to followed_user
+  end
+
   private
 
   def find_followed_user
