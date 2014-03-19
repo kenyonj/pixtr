@@ -9,10 +9,7 @@
 <body>
   <h1><%= link_to "Pixtr", root_path %></h1>
   <% if signed_in? %>
-    <nav>
-      <%= link_to "Galleries", galleries_path %>
-      <%= link_to "Groups", groups_path %>
-    </nav>
+    <%= render 'application/nav' %>
   <% end %>
 
   <% if signed_in? %>
