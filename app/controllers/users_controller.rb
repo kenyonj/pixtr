@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = find_user
+    @images = @user.images
   end
 
   private

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319135031) do
+ActiveRecord::Schema.define(version: 20140319191505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20140319135031) do
 
   add_index "comments", ["image_id"], name: "index_comments_on_image_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "following_relationships", force: true do |t|
+    t.integer  "followed_user_id"
+    t.integer  "follower_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "following_relationships", ["followed_user_id"], name: "index_following_relationships_on_followed_user_id", using: :btree
+  add_index "following_relationships", ["follower_id"], name: "index_following_relationships_on_follower_id", using: :btree
 
   create_table "galleries", force: true do |t|
     t.string  "name"
@@ -62,10 +72,12 @@ ActiveRecord::Schema.define(version: 20140319135031) do
   end
 
   create_table "images", force: true do |t|
-    t.string  "name"
-    t.text    "description"
-    t.string  "url"
-    t.integer "gallery_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "url"
+    t.integer  "gallery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

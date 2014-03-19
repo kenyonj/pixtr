@@ -10,6 +10,10 @@ Pixtr::Application.routes.draw do
     resources :comments, only: [:create]
   end
 
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index] do
+    member do
+      post "follow" => "following_relationships#create"
+    end
+  end
   
 end

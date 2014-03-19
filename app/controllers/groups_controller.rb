@@ -12,16 +12,16 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      @group.members << current_user
+      @group.add_member current_user
       redirect_to @group
     else
       render :new
     end
-
   end
 
   def show
     @group = find_group
+    @images = @group.images
   end
 
   private

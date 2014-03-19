@@ -1,2 +1,5 @@
 <h2><%= @user.email %></h2>
-<%= render @user.images %>
+<div>
+  <%= button_to "Follow", follow_user_path(@user) %>
+</div>
+<%= render @images %>

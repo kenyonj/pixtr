@@ -1,4 +1,3 @@
-<%= link_to "Back to the #{@image.gallery.name} gallery", @image.gallery %>
 <%= content_tag :h2, @image.name %>
 <%= content_tag :h3, @image.description %>
 <p>
@@ -10,6 +9,11 @@
   <% end %>
 </p>
 <%= image_tag(@image.url, width: "500") %>
+<p>
+  Added by: <%= link_to @image.user.email, @image.user %> 
+  <%= time_ago_in_words(@image.created_at) %> ago
+</p>
+
 <% if signed_in? %>
   <%= form_for [@image, @comment] do |form| %>
     <%= form.text_area :body %>
