@@ -32,11 +32,23 @@ class User < ActiveRecord::Base
     followed_user_ids.include? user.id
   end
 
+  def is_member? group
+    group_ids.include? group.id
+  end
+
   def follow user
     followed_users << user
   end
 
   def unfollow user
     followed_users.destroy user
+  end
+
+  def join group
+    groups << group
+  end
+
+  def leave group
+    groups.destroy group
   end
 end

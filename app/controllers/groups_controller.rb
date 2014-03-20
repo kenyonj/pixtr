@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :authorize
 
   def index
-    @groups = current_user.groups
+    @groups = Group.all
   end
 
   def new
