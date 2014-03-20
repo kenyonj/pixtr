@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
     through: :follower_relationships
 
   def is_following? user
-    followed_users.include? user
+    followed_user_ids.include? user.id
   end
 
   def follow user
