@@ -12,6 +12,10 @@ Pixtr::Application.routes.draw do
   end
 
   resources :images, except: [:index, :new, :create] do
+    member do
+      post "like" => "likes#create"
+      delete "dislike" => "likes#destroy"
+    end
     resources :comments, only: [:create]
   end
 

@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
 
   has_many :comments
 
+  has_many :likes
+
+  has_many :liked_images,
+    through: :likes, source: :image
+
   has_many :group_memberships,
     foreign_key: :member_id
 
@@ -27,6 +32,18 @@ class User < ActiveRecord::Base
 
   has_many :followers,
     through: :follower_relationships
+
+  def like image
+    liked_images << image
+  end
+
+  def dislike image
+    liked_images.destroy(image)
+  end
+
+  def likes? image
+    liked_image_ids.include? image.id
+  end
 
   def is_following? user
     followed_user_ids.include? user.id

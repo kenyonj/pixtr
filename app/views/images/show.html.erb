@@ -15,6 +15,13 @@
 </p>
 
 <% if signed_in? %>
+  <div>
+    <% if current_user.likes? @image %>
+      <%= button_to "Dislike image", dislike_image_path(@image), method: :delete %>
+    <% else %>
+      <%= button_to "Like image", like_image_path(@image) %>
+    <% end %>
+  </div>
   <%= form_for [@image, @comment] do |form| %>
     <%= form.text_area :body %>
     <%= form.submit "Comment" %>
