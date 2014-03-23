@@ -1,7 +1,9 @@
 .logo {
-  @include hide-text;
   background-image: url(pixtr-logo.png);
   background-repeat: no-repeat;
+  display: block;
+  float: left;
+  text-indent: -9999px;
   width: 200px;
   height: 75px;
 }
