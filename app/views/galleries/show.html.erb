@@ -1,9 +1,13 @@
-<%= content_tag :h1, @gallery.name %>
+<h2 class="gallery"><%= @gallery.name %></h2>
 <% if @gallery.user == current_user %>
-  <%= link_to "Edit", edit_gallery_path(@gallery) %>
-  <%= link_to "Delete", @gallery, method: :delete %>
-  <%= link_to "New image", new_gallery_image_path(@gallery) %>
+  <nav>
+    <ul>
+      <li><%= link_to "Edit", edit_gallery_path(@gallery) %></li>
+      <li><%= link_to "Delete", @gallery, method: :delete %></li>
+      <li><%= link_to "New image", new_gallery_image_path(@gallery) %></li>
+    </ul>
+  </nav>
 <% end %>
-<div>
+<div class="gallery-images">
   <%= render @gallery.images %>
 </div>

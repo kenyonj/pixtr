@@ -1,2 +1,6 @@
-<%= link_to image_tag(image.url, width: "200"), image %>
-by: <%= link_to image.user.email, image.user %>
+<div class="image">
+  <%= link_to image_tag(image.url, width: "200"), image %>
+  <div class="author">
+    by: <%= link_to image.user.email, image.user %>
+  </div>
+</div>

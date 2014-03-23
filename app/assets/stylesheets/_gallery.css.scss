@@ -1,0 +1,15 @@
+h2.gallery {
+  text-shadow: 1px 1px #000000;
+}
+
+div.gallery-images{
+}
+
+.image {
+  @include span-columns(2);
+  @include omega(6n);
+  height: 300px;
+
+  .author {
+  }
+}

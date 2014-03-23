@@ -1,7 +1,9 @@
 <h2>My Galleries</h2>
-
 <nav>
-  <%= link_to "New gallery", new_gallery_path %>
+  <ul>
+    <li>
+      <%= link_to "New gallery", new_gallery_path %>
+    </li>
+  </ul>
 </nav>
-<br>
 <%= render @galleries %>

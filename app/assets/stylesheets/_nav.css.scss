@@ -1,0 +1,21 @@
+body {
+  nav {
+    width: 100%;
+    float: left;
+    padding: 0;
+    list-style: none;
+
+    li {
+      float: left;
+      padding: 0.15em;
+      color: black;
+
+      a {
+        @include button;
+        color: black;
+        font-size: 16px;
+      }
+    }
+  }
+}
+

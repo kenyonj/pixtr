@@ -7,7 +7,7 @@
 <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1><%= link_to "Pixtr", root_path %></h1>
+  <h1 class="logo"><%= link_to "Pixtr", root_path %></h1>
   <% if signed_in? %>
     <%= render 'application/nav' %>
   <% end %>
@@ -24,7 +24,8 @@
       <div class="flash <%= key %>"><%= value %></div>
     <% end %>
   </div>
-<%= yield %>
+
+  <%= yield %>
 
 </body>
 </html>
