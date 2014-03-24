@@ -1,2 +1,0 @@
-class GroupActivity < Activity
-end

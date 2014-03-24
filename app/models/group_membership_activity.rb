@@ -1,0 +1,2 @@
+class GroupMembershipActivity < Activity
+end

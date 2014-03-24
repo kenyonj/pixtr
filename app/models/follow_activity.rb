@@ -1,2 +1,0 @@
-class FollowActivity < Activity
-end

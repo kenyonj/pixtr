@@ -1,0 +1,2 @@
+class FollowingRelationshipActivity < Activity
+end
