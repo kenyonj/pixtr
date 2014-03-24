@@ -1,7 +1,8 @@
 class FollowingRelationshipsController < ApplicationController
   def create
     followed_user = find_followed_user
-    current_user.follow followed_user
+    follow = current_user.follow followed_user
+    process_activity follow
     redirect_to followed_user
   end
 

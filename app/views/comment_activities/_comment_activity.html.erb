@@ -1,0 +1,6 @@
+<div>
+  <%= link_to comment_activity.subject.user.email, comment_activity.subject.user %>
+  commented on 
+  <%= link_to comment_activity.image_name, comment_activity.image %> 
+  <%= time_ago_in_words(comment_activity.created_at) %> ago
+</div>

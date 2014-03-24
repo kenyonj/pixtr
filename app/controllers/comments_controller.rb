@@ -3,8 +3,9 @@ class CommentsController < ApplicationController
 
   def create
     image = find_image
-    comment = image.comments.new(comment_params)
-    if comment.save
+    comment = image.comments.create(comment_params)
+    if comment.valid?
+      process_activity comment
       redirect_to image, alert: "Comment saved!"
     else
       redirect_to image, alert: "Can not comment with an empty comment."

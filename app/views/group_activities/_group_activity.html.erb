@@ -1,0 +1,6 @@
+<div>
+  <%= link_to group_activity.subject.member.email, group_activity.subject.member %>
+  joined 
+  <%= link_to group_activity.subject.group.name, group_activity.subject.group %> 
+  <%= time_ago_in_words(group_activity.created_at) %> ago
+</div>

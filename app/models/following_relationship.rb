@@ -5,6 +5,8 @@ class FollowingRelationship < ActiveRecord::Base
   belongs_to :follower,
     class_name: "User"
 
+  has_many :activities, as: :subject, dependent: :destroy
+
   validates :followed_user_id,
     uniqueness: { scope: :follower_id }
 

@@ -1,7 +1,8 @@
 class LikesController < ApplicationController
   def create
     image = find_image
-    current_user.like image
+    like = current_user.like image
+    process_activity like
     redirect_to image
   end
 

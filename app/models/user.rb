@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include Clearance::User
 
+  has_many :activities
+
   has_many :galleries, dependent: :destroy
 
   has_many :images,
@@ -37,8 +39,9 @@ class User < ActiveRecord::Base
   has_many :followers,
     through: :follower_relationships
 
+
   def like(image)
-    liked_images << image
+    likes.create(image: image)
   end
 
   def dislike(image)
@@ -58,7 +61,9 @@ class User < ActiveRecord::Base
   end
 
   def follow(user)
-    followed_users << user
+    followed_user_relationships.create(
+      followed_user: user
+    )
   end
 
   def unfollow(user)
@@ -66,7 +71,7 @@ class User < ActiveRecord::Base
   end
 
   def join(group)
-    groups << group
+    group_memberships.create(group: group)
   end
 
   def leave(group)

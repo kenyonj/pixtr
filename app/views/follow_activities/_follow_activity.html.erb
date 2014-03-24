@@ -1,0 +1,6 @@
+<div>
+  <%= link_to follow_activity.subject.follower.email, follow_activity.subject.follower %>
+  followed 
+  <%= link_to follow_activity.subject.followed_user.email, follow_activity.subject.followed_user %> 
+  <%= time_ago_in_words(follow_activity.created_at) %> ago
+</div>

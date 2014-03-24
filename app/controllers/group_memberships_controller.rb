@@ -1,7 +1,8 @@
 class GroupMembershipsController < ApplicationController
   def create
     group = find_group
-    current_user.join group
+    membership = current_user.join group
+    process_activity membership
     redirect_to group
   end
 
