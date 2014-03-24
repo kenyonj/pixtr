@@ -9,7 +9,7 @@
   <% end %>
 </p>
 <%= image_tag(@image.url, width: "500") %>
-<p>Likes: <%= @image.user_likes.size %></p>
+<p>Likes: <%= @image.likes.count %></p>
 <p>
   Added by: <%= link_to @image.user.email, @image.user %> 
   <%= time_ago_in_words(@image.created_at) %> ago
