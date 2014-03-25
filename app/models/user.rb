@@ -18,6 +18,11 @@ class User < ActiveRecord::Base
     source: :likeable,
     source_type: "Image"
 
+  has_many :liked_images,
+    through: :likes,
+    source: :likeable,
+    source_type: "Image"
+
   has_many :group_memberships,
     foreign_key: :member_id,
     dependent: :destroy
@@ -41,17 +46,17 @@ class User < ActiveRecord::Base
   has_many :followers,
     through: :follower_relationships
 
-
   def like(subject)
     likes.create(likeable: subject)
   end
 
-  def dislike(image)
-    liked_images.destroy image
+  def dislike(subject)
+    like = likes.find_by(likeable: subject)
+    likes.destroy like
   end
 
-  def likes?(image)
-    liked_image_ids.include? image.id
+  def likes?(subject)
+    likes.exists?(likeable: subject)
   end
 
   def is_following?(user)

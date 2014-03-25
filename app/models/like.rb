@@ -4,5 +4,5 @@ class Like < ActiveRecord::Base
 
   has_many :activities, as: :subject, dependent: :destroy
 
-  validates :user, uniqueness: { scope: :likeable }
+  validates :user, uniqueness: { scope: [:likeable_id, :likeable_type] }
 end
