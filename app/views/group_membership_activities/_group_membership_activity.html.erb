@@ -1,6 +1,5 @@
-<div>
+<%= render layout: 'activities', locals: { activity: group_membership_activity } do %>
   <%= link_to group_membership_activity.subject.member.email, group_membership_activity.subject.member %>
   joined 
   <%= link_to group_membership_activity.subject.group.name, group_membership_activity.subject.group %> 
-  <%= time_ago_in_words(group_membership_activity.created_at) %> ago
-</div>
+<% end %>

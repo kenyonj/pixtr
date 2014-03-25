@@ -1,7 +1,9 @@
 <h2><%= @group.name %></h2>
-<% if current_user.is_member? @group %>
-  <%= button_to "Leave group", leave_group_path(@group), method: :delete %>
-<% else %>
-  <%= button_to "Join group", join_group_path(@group) %>
+<% if signed_in? %>
+  <% if current_user.is_member? @group %>
+    <%= button_to "Leave group", leave_group_path(@group), method: :delete %>
+  <% else %>
+    <%= button_to "Join group", join_group_path(@group) %>
+  <% end %>
 <% end %>
 <%= render @images %>

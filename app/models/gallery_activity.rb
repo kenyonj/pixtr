@@ -1,0 +1,2 @@
+class GalleryActivity < Activity
+end

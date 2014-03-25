@@ -1,6 +1,7 @@
-<div>
-  <%= link_to like_activity.subject.user.email, like_activity.subject.user %>
-  liked 
-  <%= link_to like_activity.image_name, like_activity.image %> 
-  <%= time_ago_in_words(like_activity.created_at) %> ago
-</div>
+<li>
+  <%= render layout: 'activities', locals: { activity: like_activity } do %>
+    <%= link_to like_activity.subject.user.email, like_activity.subject.user %>
+    liked 
+    <%= link_to like_activity.subject.likeable.name, like_activity.subject.likeable %> 
+  <% end %>
+</li>

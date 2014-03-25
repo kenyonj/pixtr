@@ -14,8 +14,9 @@ class GalleriesController < ApplicationController
   end
 
   def create
-    @gallery = current_user.galleries.new(gallery_params)
-    if @gallery.save
+    @gallery = current_user.galleries.create(gallery_params)
+    if @gallery.valid?
+      process_activity @gallery
       redirect_to @gallery
     else
       render :new

@@ -1,6 +1,5 @@
-<div>
-  <%= link_to following_relationship_activity.subject.follower.email, following_relationsip_activity.subject.follower %>
+<%= render layout: 'activities', locals: { activity: following_relationship_activity} do %>
+  <%= link_to following_relationship_activity.subject.follower.email, following_relationship_activity.subject.follower %>
   followed 
   <%= link_to following_relationship_activity.subject.followed_user.email, following_relationship_activity.subject.followed_user %> 
-  <%= time_ago_in_words(following_relationship_activity.created_at) %> ago
-</div>
+<% end %>

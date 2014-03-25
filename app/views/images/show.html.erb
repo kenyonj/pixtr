@@ -1,13 +1,14 @@
 <%= content_tag :h2, @image.name %>
 <%= content_tag :h3, @image.description %>
-<p>
-  <% if @image.user == current_user %>
-    <%= link_to "Edit image", edit_image_path(@image) %>
-    <%= link_to "Delete image", @image, method: :delete, 
-        confirm: "Are you sure you want to delete this image?"
-    %>
-  <% end %>
-</p>
+
+<% if @image.user == current_user %>
+  <div class="button-group">
+    <button><%= link_to "Edit image", edit_image_path(@image) %></button>
+    <button><%= link_to "Delete image", @image, method: :delete,
+    confirm: "Are you sure you want to delete this image?" %></button>
+  </div>
+<% end %>
+
 <%= image_tag(@image.url, width: "500") %>
 <p>Likes: <%= @image.likes.count %></p>
 <p>

@@ -1,10 +1,11 @@
 @import "bourbon";
 @import "neat";
 @import "bitters/bitters";
-@import "header";
+// @import "header";
 @import "nav";
 @import "gallery";
 
 body {
+  @include outer-container;
   background-color: white;
 }

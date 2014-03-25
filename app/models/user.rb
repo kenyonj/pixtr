@@ -14,7 +14,9 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
 
   has_many :liked_images,
-    through: :likes, source: :image
+    through: :likes,
+    source: :likeable,
+    source_type: "Image"
 
   has_many :group_memberships,
     foreign_key: :member_id,
@@ -40,8 +42,8 @@ class User < ActiveRecord::Base
     through: :follower_relationships
 
 
-  def like(image)
-    likes.create(image: image)
+  def like(subject)
+    likes.create(likeable: subject)
   end
 
   def dislike(image)

@@ -1,6 +1,0 @@
-<div>
-  <%= link_to like_activity.subject.user.email, like_activity.subject.user %>
-  liked 
-  <%= link_to like_activity.image_name, like_activity.image %> 
-  <%= time_ago_in_words(like_activity.created_at) %> ago
-</div>

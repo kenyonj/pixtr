@@ -1,7 +1,42 @@
-<nav>
-  <ul>
-    <li><%= link_to "Galleries", galleries_path %></li>
-    <li><%= link_to "Groups", groups_path %></li>
-    <li><%= link_to "Users", users_path %></li>
-  </ul>
-</nav>
+<header class="navigation">
+  <div class="menu-wrapper">
+    <a href="" class="logo">
+      <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
+    </a>
+    <p class="menu-button" id="js-mobile-menu">MENU</p>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <li><%= link_to "Galleries", galleries_path %></li>
+        <li><%= link_to "Groups", groups_path %></li>
+        <li><%= link_to "Users", users_path %></li>
+        <li class="navigation-search-bar">
+          <div class="search-bar">
+            <div class="search-and-submit">
+              <input type="search" placeholder="Enter Search" />
+              <button type="submit">
+                <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="sign-up"><%= link_to "Sign Up", sign_up_path %></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  $(function() {
+    var menu = $('#navigation-menu');
+    var menuToggle = $('#js-mobile-menu');
+
+    $(menuToggle).on('click', function(e) {
+      e.preventDefault();
+      menu.slideToggle(function(){
+        if(menu.is(':hidden')) {
+          menu.removeAttr('style');
+        }
+      });
+    });
+  });
+</script>

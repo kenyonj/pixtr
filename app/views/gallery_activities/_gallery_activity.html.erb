@@ -1,0 +1,5 @@
+<%= render layout: 'activities', locals: { activity: gallery_activity } do %>
+  <%= link_to gallery_activity.subject.user.email, gallery_activity.subject.user %>
+  created 
+  <%= link_to gallery_activity.subject.name, gallery_activity.subject %>
+<% end %>

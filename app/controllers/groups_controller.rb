@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :authorize
+  before_action :authorize, except: [:show]
 
   def index
     @groups = Group.all
@@ -10,9 +10,10 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
-    if @group.save
-      @group.add_member current_user
+    @group = Group.create(group_params)
+    if @group.valid?
+      group_membership = current_user.join @group
+      process_activity group_membership
       redirect_to @group
     else
       render :new
