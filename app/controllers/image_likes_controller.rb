@@ -1,15 +1,15 @@
 class ImageLikesController < ApplicationController
   def create
-    image = find_image
-    like = current_user.like image
+    @image = find_image
+    like = current_user.like @image
     process_activity like
-    redirect_to image
+    @image_likes = @image.likes.count
   end
 
   def destroy
-    image = find_image
-    current_user.dislike image
-    redirect_to image
+    @image = find_image
+    current_user.dislike @image
+    @image_likes = @image.likes.count
   end
 
   private

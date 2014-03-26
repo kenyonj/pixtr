@@ -1,0 +1,3 @@
+$("#like_count").html(<%= @image_likes %>);
+template = "<%=j button_to "Like image", like_image_path(@image), remote: true %>";
+$("#like_button").html(template);

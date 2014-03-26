@@ -10,7 +10,7 @@
 <% end %>
 
 <%= image_tag(@image.url, width: "500") %>
-<p>Likes: <%= @image.likes.count %></p>
+<p>Likes: <span id="like_count"><%= @image.likes.count %></span></p>
 <p>
   Added by: <%= link_to @image.user.email, @image.user %> 
   <%= time_ago_in_words(@image.created_at) %> ago
@@ -19,12 +19,16 @@
 <% if signed_in? %>
   <div>
     <% if current_user.likes? @image %>
-      <%= button_to "Dislike image", dislike_image_path(@image), method: :delete %>
+      <span id="like_button">
+        <%= button_to "Dislike image", dislike_image_path(@image), method: :delete, remote: true %>
+      </span>
     <% else %>
-      <%= button_to "Like image", like_image_path(@image) %>
+      <span id="like_button">
+        <%= button_to "Like image", like_image_path(@image), remote: true %>
+      </span>
     <% end %>
   </div>
-  <%= form_for [@image, @comment] do |form| %>
+  <%= form_for([@image, @comment], remote: true) do |form| %>
     <%= form.text_area :body %>
     <%= form.submit "Comment" %>
   <% end %>
@@ -34,6 +38,7 @@
   </div>
 <% end %>
 
-<%= render @comments %>
-<%= paginate @comments %>
-
+<div id="comments">
+  <%= render @comments %>
+</div>
+<%= link_to_next_page @comments, "Load more...", remote: true, id: "next_page" %>

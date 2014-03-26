@@ -24,7 +24,7 @@ Pixtr::Application.routes.draw do
       post "like" => "image_likes#create"
       delete "dislike" => "image_likes#destroy"
     end
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
 
   resources :users, only: [:show, :index] do
