@@ -1,0 +1,3 @@
+$("#like_count").html(<%= @target.num_likes %>);
+template = "<%=j render 'like', subject: @target %>"
+$("#like_button").html(template);

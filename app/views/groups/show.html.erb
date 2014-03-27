@@ -1,16 +1,10 @@
 <h2><%= @group.name %></h2>
 <% if signed_in? %>
   <div id="join-button">
-    <% if current_user.is_member? @group %>
-      <%= button_to "Leave group", leave_group_path(@group), remote: true, method: :delete %>
-    <% else %>
-      <%= button_to "Join group", join_group_path(@group), remote: true %>
-    <% end %>
+    <%= render 'join_group_button', group: @group %>
   </div>
-  <% if current_user.likes? @group %>
-    <%= button_to "Dislike group", dislike_group_path(@group), method: :delete %>
-  <% else %>
-    <%= button_to "Like group", like_group_path(@group) %>
-  <% end %>
+  <div id="like_button">
+    <%= render 'like', subject: @group %>
+  </div>
 <% end %>
 <%= render @images %>

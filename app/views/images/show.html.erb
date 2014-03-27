@@ -18,11 +18,7 @@
 
 <% if signed_in? %>
   <div id="like_button">
-    <% if current_user.likes? @image %>
-        <%= button_to "Dislike image", dislike_image_path(@image), method: :delete, remote: true %>
-    <% else %>
-        <%= button_to "Like image", like_image_path(@image), remote: true %>
-    <% end %>
+    <%= render 'application/like', subject: @image %>
   </div>
   <%= form_for([@image, @comment], remote: true) do |form| %>
     <%= form.text_area :body %>

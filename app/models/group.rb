@@ -1,4 +1,6 @@
 class Group < ActiveRecord::Base
+  include Likeable
+
   has_many :group_memberships, dependent: :destroy
 
   has_many :members,

@@ -9,11 +9,9 @@
   </nav>
 <% end %>
 <% if signed_in? %>
-  <% if current_user.likes? @gallery %>
-    <%= button_to "Dislike gallery", dislike_gallery_path(@gallery), method: :delete %>
-  <% else %>
-    <%= button_to "Like gallery", like_gallery_path(@gallery) %>
-  <% end %>
+  <div id="like_button">
+    <%= render 'application/like', subject: @gallery %>
+  </div>
 <% end %>
 <div class="gallery-images">
   <%= render @gallery.images %>

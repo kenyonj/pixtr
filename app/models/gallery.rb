@@ -1,4 +1,6 @@
 class Gallery < ActiveRecord::Base
+  include Likeable
+
   has_many :images, dependent: :destroy
   belongs_to :user
 

@@ -1,20 +1,8 @@
-class ImageLikesController < ApplicationController
-  def create
-    @image = find_image
-    like = current_user.like @image
-    process_activity like
-    @image_likes = @image.likes.count
-  end
-
-  def destroy
-    @image = find_image
-    current_user.dislike @image
-    @image_likes = @image.likes.count
-  end
+class ImageLikesController < LikesController
 
   private
 
-  def find_image
+  def find_target
     Image.find(params[:id])
   end
 end
