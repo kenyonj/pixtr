@@ -3,8 +3,6 @@
   <div id="join-button">
     <%= render 'join_group_button', group: @group %>
   </div>
-  <div id="like_button">
-    <%= render 'like', subject: @group %>
-  </div>
+  <%= render 'like', subject: @group %>
 <% end %>
 <%= render @images %>

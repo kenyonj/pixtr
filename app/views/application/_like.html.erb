@@ -1,5 +1,7 @@
-<% if current_user.likes? subject %>
-  <%= button_to "Dislike #{subject.class.name.downcase}", [:dislike, subject], remote: true, method: :delete %>
-<% else %>
-  <%= button_to "Like #{subject.class.name.downcase}", [:like, subject], remote: true %>
+<%= div_for(subject, class: "like") do %>
+  <% if current_user.likes? subject %>
+    <%= button_to "Dislike #{subject.class.name.downcase}", [:dislike, subject], remote: true, method: :delete %>
+  <% else %>
+    <%= button_to "Like #{subject.class.name.downcase}", [:like, subject], remote: true %>
+  <% end %>
 <% end %>

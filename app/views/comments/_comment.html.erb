@@ -1,11 +1,15 @@
-<div id="<%= dom_id(comment) %>">
+<div id="<%= dom_id(comment) %>_body" class="comment">
   <div class="author">
     <%= comment.user.email %>  <%= time_ago_in_words(comment.created_at) %> ago
+  </div>
+  <div class="option">
     <% if current_user == comment.user %>
-      <%= link_to "Remove comment", image_comment_path(comment.image, comment), method: :delete, remote: true %>
+      <%= link_to "Remove comment", comment, method: :delete, remote: true %>
+    <% else %>
+      <%= render 'like', subject: comment %>
     <% end %>
   </div>
-  <div class="comment_body">
+  <div class="body">
     <%= comment.body %>
   </div>
 </div>

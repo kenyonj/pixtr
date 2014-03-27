@@ -17,9 +17,7 @@
 </p>
 
 <% if signed_in? %>
-  <div id="like_button">
-    <%= render 'application/like', subject: @image %>
-  </div>
+  <%= render 'like', subject: @image %>
   <%= form_for([@image, @comment], remote: true) do |form| %>
     <%= form.text_area :body %>
     <%= form.submit "Comment" %>

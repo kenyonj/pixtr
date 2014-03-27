@@ -9,9 +9,7 @@
   </nav>
 <% end %>
 <% if signed_in? %>
-  <div id="like_button">
-    <%= render 'application/like', subject: @gallery %>
-  </div>
+  <%= render 'like', subject: @gallery %>
 <% end %>
 <div class="gallery-images">
   <%= render @gallery.images %>

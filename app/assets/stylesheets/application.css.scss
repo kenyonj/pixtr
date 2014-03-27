@@ -1,7 +1,6 @@
 @import "bourbon";
 @import "neat";
 @import "bitters/bitters";
-// @import "header";
 @import "nav";
 @import "gallery";
 
@@ -9,3 +8,19 @@ body {
   @include outer-container;
   background-color: white;
 }
+
+.comment{
+  @include span-columns(8);
+  @include row(table);
+  .author{
+  }
+  .option{
+  }
+}
+
+.comment.body{
+}
+
+// .like {
+//   @include button()
+// }

@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    image = find_image
     @comment = find_comment
     current_user.comments.destroy(@comment)
   end
