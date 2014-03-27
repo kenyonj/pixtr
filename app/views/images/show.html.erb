@@ -17,15 +17,11 @@
 </p>
 
 <% if signed_in? %>
-  <div>
+  <div id="like_button">
     <% if current_user.likes? @image %>
-      <span id="like_button">
         <%= button_to "Dislike image", dislike_image_path(@image), method: :delete, remote: true %>
-      </span>
     <% else %>
-      <span id="like_button">
         <%= button_to "Like image", like_image_path(@image), remote: true %>
-      </span>
     <% end %>
   </div>
   <%= form_for([@image, @comment], remote: true) do |form| %>

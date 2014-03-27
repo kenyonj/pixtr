@@ -1,7 +1,7 @@
 <header class="navigation">
   <div class="menu-wrapper">
-    <a href="" class="logo">
-      <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
+    <a href="/" class="logo">
+      <%= image_tag "pixtr-logo2.png" %>
     </a>
     <p class="menu-button" id="js-mobile-menu">MENU</p>
     <div class="nav">
@@ -9,16 +9,6 @@
         <li><%= link_to "Galleries", galleries_path %></li>
         <li><%= link_to "Groups", groups_path %></li>
         <li><%= link_to "Users", users_path %></li>
-        <li class="navigation-search-bar">
-          <!-- <div class="search&#45;bar"> -->
-          <!--   <div class="search&#45;and&#45;submit"> -->
-          <!--     <input type="search" placeholder="Enter Search" /> -->
-          <!--     <button type="submit"> -->
-          <!--       <img src="https://raw.githubusercontent.com/Magnus&#45;G/Random/master/search&#45;icon.png" alt=""> -->
-          <!--     </button> -->
-          <!--   </div> -->
-          <!-- </div> -->
-        </li>
         <% if signed_in? %>
           <li class="sign-up"><%= link_to "Sign Out", sign_out_path, method: :delete %></li>
         <% else %>
