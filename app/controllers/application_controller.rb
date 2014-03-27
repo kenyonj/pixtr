@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
   def process_activity(subject, type = nil)
     ActivitiesProcessor.new(current_user).process subject, type
   end
+
 end

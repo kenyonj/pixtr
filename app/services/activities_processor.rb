@@ -12,11 +12,16 @@ class ActivitiesProcessor
           subject: subject,
           type: type
         )
+        mail(subject, follower)
       end
     end
   end
 
   private
+
+  def mail(activity, user)
+    NotificationMailer.notification_email(activity, user).deliver
+  end
 
   attr_reader :user
 

@@ -17,6 +17,7 @@ class GalleriesController < ApplicationController
     @gallery = current_user.galleries.create(gallery_params)
     if @gallery.valid?
       process_activity @gallery
+      mail_notification current_user
       redirect_to @gallery
     else
       render :new
