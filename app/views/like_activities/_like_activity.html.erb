@@ -1,7 +1,5 @@
-<li>
-  <%= render layout: 'activities', locals: { activity: like_activity } do %>
-    <%= link_to like_activity.subject.user.email, like_activity.subject.user %>
-    liked 
-    <%= link_to like_activity.subject.likeable.name, like_activity.subject.likeable %> 
-  <% end %>
-</li>
+<%= render layout: 'activities', locals: { activity: like_activity } do %>
+  <%= link_to like_activity.subject.user.email, like_activity.subject.user %>
+  liked 
+  <%= link_to like_activity.subject.likeable.name, like_activity.subject.likeable %> 
+<% end %>
