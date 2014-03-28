@@ -3,13 +3,13 @@ h2.gallery {
 }
 
 div.gallery-images{
+  .image {
+    @include span-columns(2);
+    @include omega(6n);
+    height: 300px;
+
+    .author {
+    }
 }
 
-.image {
-  @include span-columns(2);
-  @include omega(6n);
-  height: 300px;
-
-  .author {
-  }
 }
