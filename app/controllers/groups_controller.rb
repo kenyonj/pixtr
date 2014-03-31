@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
     @group = Group.create(group_params)
     if @group.valid?
       group_membership = current_user.join @group
-      process_activity group_membership
+      process_activity(group_membership, @group)
       redirect_to @group
     else
       render :new
