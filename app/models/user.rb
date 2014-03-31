@@ -18,11 +18,6 @@ class User < ActiveRecord::Base
     source: :likeable,
     source_type: "Image"
 
-  has_many :liked_images,
-    through: :likes,
-    source: :likeable,
-    source_type: "Image"
-
   has_many :group_memberships,
     foreign_key: :member_id,
     dependent: :destroy

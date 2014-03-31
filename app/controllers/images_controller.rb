@@ -19,6 +19,7 @@ class ImagesController < ApplicationController
     @image = @gallery.images.build(image_params)
     if @image.save
       redirect_to @gallery
+      process_activity(@image, @image)
     else
       render :new
     end

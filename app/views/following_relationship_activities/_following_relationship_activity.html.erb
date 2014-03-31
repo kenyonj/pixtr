@@ -1,5 +1,5 @@
 <%= render layout: 'activities', locals: { activity: following_relationship_activity} do %>
-  <%= link_to following_relationship_activity.subject.follower.email, following_relationship_activity.subject.follower %>
+  <%= link_to following_relationship_activity.actor.email, following_relationship_activity.actor %>
   followed 
-  <%= link_to following_relationship_activity.subject.followed_user.email, following_relationship_activity.subject.followed_user %> 
+  <%= link_to following_relationship_activity.target.email, following_relationship_activity.target %> 
 <% end %>

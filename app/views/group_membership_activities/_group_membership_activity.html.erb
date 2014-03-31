@@ -1,5 +1,5 @@
 <%= render layout: 'activities', locals: { activity: group_membership_activity } do %>
-  <%= link_to group_membership_activity.subject.member.email, group_membership_activity.subject.member %>
+  <%= link_to group_membership_activity.actor.email, group_membership_activity.actor %>
   joined 
-  <%= link_to group_membership_activity.subject.group.name, group_membership_activity.subject.group %> 
+  <%= link_to group_membership_activity.target.name, group_membership_activity.target %> 
 <% end %>

@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     image = find_image
     @comment = image.comments.create(comment_params)
     if @comment.valid?
-      process_activity @comment
+      process_activity(@comment, image)
     else
       redirect_to image, alert: "Can not comment with an empty comment."
     end

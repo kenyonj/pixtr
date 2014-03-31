@@ -1,0 +1,5 @@
+<%= render layout: 'activities', locals: { activity: image_activity } do %>
+  <%= link_to image_activity.actor.email, image_activity.actor %>
+  added
+  <%= link_to image_activity.target.name, image_activity.target %>
+<% end %>

@@ -1,0 +1,2 @@
+class ImageActivity < Activity
+end

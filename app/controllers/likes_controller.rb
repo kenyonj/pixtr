@@ -2,7 +2,9 @@ class LikesController < ApplicationController
   def create
     @target = find_target
     like = current_user.like @target
-    process_activity like
+    if like.valid?
+      process_activity(like, @target)
+    end
     render :like
   end
 

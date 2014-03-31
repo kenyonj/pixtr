@@ -7,7 +7,7 @@ $large-screen: em(860);
   $button-group-active: $base-accent-color;
 
   @include clearfix;
-  
+
   button {
     @include button(simple, $button-group-background);
     font-weight: 400;
@@ -31,7 +31,7 @@ $large-screen: em(860);
       border-left: 1px solid $button-group-border-highlight;
       border-radius: 0;
     }
-    
+
     &:last-child {
       border-bottom-left-radius: 0;
       border-left: 1px solid $button-group-border-highlight;
@@ -65,7 +65,7 @@ header.navigation {
   }
 
   .logo {
-    float: left;    
+    float: left;
     max-height: $navigation-height;
     padding-left: 1em;
     padding-right: 2em;
@@ -103,7 +103,7 @@ header.navigation {
     }
   }
 
-  ul#navigation-menu {    
+  ul#navigation-menu {
     clear: both;
     -webkit-transform-style: preserve-3d; // stop webkit flicker
     display: none;
@@ -157,9 +157,9 @@ header.navigation {
       a {
         @include transition (all 0.2s ease-in-out);
         background: $navigation-nav-button-background;
-        border-radius: $base-border-radius; 
+        border-radius: $base-border-radius;
         color: white;
-        font-size: .8em;  
+        font-size: .8em;
         font-weight: 800;
         padding: .6em 1em;
         text-transform: uppercase;
@@ -178,9 +178,9 @@ header.navigation {
       a {
         @include transition (all 0.2s ease-in-out);
         background: $navigation-nav-button-background;
-        border-radius: $base-border-radius; 
+        border-radius: $base-border-radius;
         color: white;
-        font-size: .8em;  
+        font-size: .8em;
         font-weight: 800;
         padding: .6em 1em;
         text-transform: uppercase;
@@ -209,7 +209,7 @@ header.navigation {
     $search-bar-background: lighten($search-bar-border-color, 10);
 
     width: 19em;
-    position: relative; 
+    position: relative;
     display: inline-block;
 
     input {

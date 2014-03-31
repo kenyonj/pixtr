@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def process_activity(subject, type = nil)
-    ActivitiesProcessor.new(current_user).process subject, type
+  def process_activity(subject, target, type = nil)
+    ActivitiesProcessor.new(current_user).process subject, target, type
   end
 
 end

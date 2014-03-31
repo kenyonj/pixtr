@@ -4,13 +4,15 @@ class ActivitiesProcessor
     @user = user
   end
 
-  def process(subject, type = nil)
+  def process(subject, target, type = nil)
     if subject.persisted?
       type ||= "#{subject.class.name}Activity"
       user.followers.each do |follower|
         follower.activities.create(
           subject: subject,
-          type: type
+          type: type,
+          target: target,
+          actor: @user
         )
         mail(subject, follower)
       end
