@@ -14,7 +14,7 @@ gem 'bourbon'
 gem 'neat'
 
 group :doc do
-  gem 'sdoc', require: false
+  # gem 'sdoc', require: false
 end
 
 group :development do
