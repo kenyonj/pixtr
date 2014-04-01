@@ -18,12 +18,14 @@ class ActivitiesProcessor
       end
     end
   end
+  handle_asynchronously :process
 
   private
 
   def mail(activity, user)
     NotificationMailer.notification_email(activity, user).deliver
   end
+  handle_asynchronously :mail
 
   attr_reader :user
 
