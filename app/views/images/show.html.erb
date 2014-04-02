@@ -11,6 +11,10 @@
 
 <%= image_tag(@image.url, width: "500") %>
 <p>Likes: <span id="like_count"><%= @image.likes.count %></span></p>
+<div id="tags">
+  <%= render @tags %>
+</div>
+<%= render 'tag_form', target: @image, tag: @tag %>
 <p>
   Added by: <%= link_to @image.user.email, @image.user %> 
   <%= time_ago_in_words(@image.created_at) %> ago

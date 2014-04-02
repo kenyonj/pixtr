@@ -7,6 +7,8 @@ class ImagesController < ApplicationController
   def show
     @image = Image.find(params[:id])
     @comment = Comment.new
+    @tag = Tag.new
+    @tags = @image.tags
     @comments = @image.comments.
                   recent.
                   page(params[:page]).

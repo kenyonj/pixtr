@@ -1,0 +1,6 @@
+<div class="tag-form">
+  <%= form_for ([target, tag]), remote: true do |form| %>
+    <%= form.text_field :body, id: "tag-body", placeholder: "Enter tag here" %>
+    <%= form.submit "Tag" %>
+  <% end %>
+</div>

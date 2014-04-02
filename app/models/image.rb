@@ -7,6 +7,9 @@ class Image < ActiveRecord::Base
   has_many :group_images, dependent: :destroy
   has_many :groups, through: :group_images
 
+  has_many :tag_memberships, dependent: :destroy
+  has_many :tags, through: :tag_memberships
+
   validates :name, presence: true
   validates :description, presence: true
   validates :url, presence: true
