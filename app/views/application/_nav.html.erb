@@ -9,6 +9,18 @@
         <li><%= link_to "My Galleries", galleries_path %></li>
         <li><%= link_to "Groups", groups_path %></li>
         <li><%= link_to "Users", users_path %></li>
+        <li class="navigation-search-bar">
+          <div class="search-bar">
+            <div class="search-and-submit">
+              <%= form_for :search, url: :search do |form| %>
+                <%= form.text_field :query, placeholder: "Enter Search" %>
+                <button type="submit">
+                  <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
+                </button>
+              <% end %>
+            </div>
+          </div>
+        </li>
         <% if signed_in? %>
           <li class="sign-up"><%= link_to "Sign Out", sign_out_path, method: :delete %></li>
         <% else %>

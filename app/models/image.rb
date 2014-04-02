@@ -17,4 +17,13 @@ class Image < ActiveRecord::Base
   def user
     gallery.user
   end
+
+  def self.search(query)
+    if query.blank?
+      scoped
+    else
+      q = "%#{query.downcase.strip}%"
+      where("lower (name) LIKE ? or lower (description) LIKE ?", q, q)
+    end
+  end
 end
