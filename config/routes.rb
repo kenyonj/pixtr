@@ -19,7 +19,8 @@ Pixtr::Application.routes.draw do
     end
   end
 
-  resource :search, only: [:create]
+  resource :search, only: [:show]
+
   resources :tags, only: [:show, :create]
 
   resources :images, except: [:index, :new, :create] do
