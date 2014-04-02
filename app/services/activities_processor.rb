@@ -14,7 +14,7 @@ class ActivitiesProcessor
           target: target,
           actor: @user
         )
-        mail(subject, follower)
+        # mail(subject, follower)
       end
     end
   end
