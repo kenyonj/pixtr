@@ -19,11 +19,7 @@ class Image < ActiveRecord::Base
   end
 
   def self.search(query)
-    if query.blank?
-      scoped
-    else
-      q = "%#{query.downcase.strip}%"
-      where("lower (name) LIKE ? or lower (description) LIKE ?", q, q)
-    end
+    q = "%#{query.downcase.strip}%"
+    where("lower (name) LIKE ? or lower (description) LIKE ?", q, q)
   end
 end
