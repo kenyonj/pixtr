@@ -14,6 +14,8 @@ gem 'bourbon'
 gem 'neat'
 gem 'delayed_job_active_record'
 gem 'daemons'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :doc do
   gem 'sdoc', require: false

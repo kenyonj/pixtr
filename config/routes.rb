@@ -1,6 +1,8 @@
 Pixtr::Application.routes.draw do
   root "homes#show"
   resource :dashboard, only: [:show]
+  resource :profile, only: [:show]
+  resource :charge, only: [:create, :destroy]
 
   resources :galleries do
     member do

@@ -79,4 +79,21 @@ class User < ActiveRecord::Base
   def leave(group)
     groups.destroy group
   end
+
+  def upgrade(customer_id)
+    update(stripe_customer_number: customer_id)
+    update(upgrade_status: true)
+  end
+
+  def stripe_user?
+    stripe_customer_number
+  end
+
+  def upgraded?
+    upgrade_status
+  end
+
+  def downgrade
+    update(upgrade_status: false)
+  end
 end
