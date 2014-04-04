@@ -6,7 +6,7 @@ class Tag < ActiveRecord::Base
   validates :body, presence: true, uniqueness: true
 
   def self.search(query)
-    where("name ILIKE ?", "%#{query}%")
+    where("body ILIKE ?", "%#{query}%")
   end
 
 end
