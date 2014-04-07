@@ -2,9 +2,7 @@ class FollowingRelationshipsController < ApplicationController
   def create
     followed_user = find_followed_user
     follow = current_user.follow followed_user
-    if follow.valid?
-      process_activity(follow, followed_user)
-    end
+    process_activity(follow, followed_user)
     redirect_to followed_user
   end
 

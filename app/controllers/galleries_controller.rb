@@ -43,10 +43,6 @@ class GalleriesController < ApplicationController
     params.require(:gallery).permit(:name)
   end
 
-  def find_image
-    Image.find(params[:id])
-  end
-
   def find_gallery
     current_user.galleries.find(params[:id])
   end

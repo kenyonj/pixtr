@@ -2,9 +2,7 @@ class GroupMembershipsController < ApplicationController
   def create
     @group = find_group
     membership = current_user.join @group
-    if membership.valid?
-      process_activity(membership, @group)
-    end
+    process_activity(membership, @group)
     render :change
   end
 

@@ -1,14 +1,12 @@
 class CommentsController < ApplicationController
   before_action :authorize
+  respond_to :html, :js
 
   def create
     image = find_image
     @comment = image.comments.create(comment_params)
-    if @comment.valid?
-      process_activity(@comment, image)
-    else
-      redirect_to image, alert: "Can not comment with an empty comment."
-    end
+    process_activity(@comment, image)
+    respond_with @comment
   end
 
   def destroy
