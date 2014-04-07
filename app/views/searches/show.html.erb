@@ -1,2 +1,2 @@
-Your search for <%= @query %> returned these results:
+Your search for <%= @query %> returned <%= pluralize(@results.count, "result") %>:
 <%= render @results %>
