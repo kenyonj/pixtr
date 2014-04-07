@@ -17,11 +17,4 @@ class Image < ActiveRecord::Base
   def user
     gallery.user
   end
-
-  def self.search(query)
-    tags = Tag.search(query)
-    image_ids = TagMembership.where(tag_id: tags).pluck(:image_id)
-    where("name ILIKE :query OR description ILIKE :query OR id IN (:image_ids)", query: "%#{query}%", image_ids: image_ids)
-  end
-
 end
