@@ -1,4 +1,5 @@
 class GalleriesController < ApplicationController
+  respond_to :html, :js
   before_action :authorize, except: [:show]
 
   def index
@@ -16,12 +17,8 @@ class GalleriesController < ApplicationController
 
   def create
     @gallery = current_user.galleries.create(gallery_params)
-    if @gallery.valid?
-      process_activity(@gallery, @gallery)
-      redirect_to @gallery
-    else
-      render :new
-    end
+    process_activity(@gallery, @gallery)
+    respond_with @gallery
   end
 
   def edit
@@ -30,11 +27,8 @@ class GalleriesController < ApplicationController
 
   def update
     @gallery = find_gallery
-    if @gallery.update(gallery_params)
-      redirect_to @gallery
-    else
-      render :edit
-    end
+    @gallery.update(gallery_params)
+    respond_with @gallery
   end
 
   def destroy
