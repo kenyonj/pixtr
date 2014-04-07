@@ -12,8 +12,4 @@ class Group < ActiveRecord::Base
     through: :group_images
 
   validates :name, presence: true
-
-  def add_member user
-    members << user
-  end
 end
