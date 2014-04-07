@@ -12,4 +12,8 @@ class Comment < ActiveRecord::Base
   def self.recent
     order(created_at: :desc)
   end
+
+  def self.paginated(page, per)
+    page(page).per(per)
+  end
 end
