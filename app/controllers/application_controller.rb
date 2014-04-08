@@ -1,11 +1,9 @@
 class ApplicationController < ActionController::Base
   include Clearance::Controller
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+
   protect_from_forgery with: :exception
 
   def process_activity(subject, target, type = nil)
-    ActivitiesProcessor.new(current_user).process subject, target, type
+    ActivitiesProcessor.new(current_user).process(subject, target, type)
   end
-
 end

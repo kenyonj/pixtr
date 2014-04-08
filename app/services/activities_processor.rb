@@ -1,5 +1,4 @@
 class ActivitiesProcessor
-
   def initialize(user)
     @user = user
   end
@@ -12,7 +11,7 @@ class ActivitiesProcessor
           subject: subject,
           type: type,
           target: target,
-          actor: @user
+          actor: user
         )
         # mail(subject, follower)
       end
@@ -22,11 +21,10 @@ class ActivitiesProcessor
 
   private
 
+  attr_reader :user
+
   def mail(activity, user)
     NotificationMailer.notification_email(activity, user).deliver
   end
   handle_asynchronously :mail
-
-  attr_reader :user
-
 end
