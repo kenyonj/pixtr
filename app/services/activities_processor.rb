@@ -5,7 +5,7 @@ class ActivitiesProcessor
 
   def process(subject, target, type = nil)
     if subject.persisted?
-      type ||= "#{subject.class.name}Activity"
+      type ||= "#{subject.class}Activity"
       user.followers.each do |follower|
         follower.activities.create(
           subject: subject,

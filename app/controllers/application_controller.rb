@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  private
+
   def process_activity(subject, target, type = nil)
     ActivitiesProcessor.new(current_user).process(subject, target, type)
   end
